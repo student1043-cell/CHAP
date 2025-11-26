@@ -12,7 +12,7 @@
     <header class="top">
       <div class="brand">
         <div class="logo" aria-hidden="true">
-          <img src="assets/teaCHAP.jpg" alt="Чашка чаю" class="cup-img">
+          <img src="assets/teaCHAP.jpg" alt="Чашка чаю" width="48" height="48" style="border-radius:12px">
         </div>
         <div>
           <h1>Вітаємо з першою річницею ЧАПу!</h1>
@@ -22,6 +22,14 @@
     </header>
 
     <section class="controls">
+      <div id="roleWarning" class="warning" style="display:none; color:red; margin-bottom:6px; font-weight:700;">
+        Живчику, ти забув ввести свою роль!
+      </div>
+      <div class="admin-note" style="font-size:12px; color:#6a5b48; margin-bottom:8px;">
+        Увага! Адміністрація не бере на себе відповідальність, якщо ви напишете в строці неправильно власну роль. 
+        Якщо ім'я не буде відповідати вашій ролі — то подарунок вам не зарахується! Тож будьте уважні при заповненні.
+      </div>
+
       <label for="roleInput">Ваша роль (це потрібно для генерації вашого подарунку):</label>
       <div class="row">
         <input id="roleInput" placeholder="Наприклад: Паймон" inputmode="text" />
@@ -30,16 +38,12 @@
       <small class="hint">Якщо вже отримали подарунок, натисніть «Переглянути сертифікат»</small>
       <div class="actions">
         <button id="viewReceipt" class="btn secondary" style="display:none">Переглянути сертифікат</button>
-        <div class="spacer"></div>
-        <button id="adminBtn" class="btn ghost">Адміністратор</button>
       </div>
     </section>
 
-    <section id="receipt" class="receipt" aria-live="polite" style="display:none">
+    <section id="receipt" class="receipt" aria-live="polite" style="display:none; overflow-y:auto; max-height:400px;">
       <h2>Сертифікат — Подарунок від адміністрації ЧАП</h2>
-      <div class="receipt-text-wrapper">
-        <pre id="receiptText"></pre>
-      </div>
+      <pre id="receiptText" style="white-space:pre-wrap;"></pre>
       <div id="receiptMeta" class="meta"></div>
     </section>
   </main>
@@ -48,9 +52,15 @@
   <div id="popup" class="popup" role="dialog" aria-modal="true" aria-label="Вітання з річницею ЧАП">
     <div class="popup-card">
       <div class="popup-header">
-        <div class="title"><div class="cup" aria-hidden="true"></div><h3>З річницею ЧАП!</h3></div>
+        <div class="title">
+          <div class="cup" aria-hidden="true">
+            <img src="assets/teaCHAP.jpg" alt="Чашка чаю" width="36" height="36" style="border-radius:8px">
+          </div>
+          <h3>З річницею ЧАП!</h3>
+        </div>
+        <button id="closeX" class="close" aria-label="Закрити">✕</button>
       </div>
-      <div id="popupBody" class="popup-body">Натисни кнопку аби отримати подарунок.</div>
+      <div id="popupBody" class="popup-body">Натисни на хрестик аби отримати подарунок.</div>
       <div id="popupFooter" class="popup-footer"></div>
     </div>
   </div>

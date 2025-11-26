@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Річниця ЧАП — сюрприз</title>
+<title>Вітаємо з першою річницею ЧАПу!</title>
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,37 +12,34 @@
     <header class="top">
       <div class="brand">
         <div class="logo" aria-hidden="true">
-          <!-- svg tea glyph -->
-          <svg viewBox="0 0 64 64" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="10" width="52" height="40" rx="10" fill="#fff" opacity="0.06"/>
-            <path d="M18 40c6 6 22 6 28 0" stroke="#6A5B3F" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M46 22c3 3 6 7 2 12" stroke="#3C4A2A" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="assets/teaCHAP.jpg" alt="Чашка чаю" class="cup-img">
         </div>
         <div>
-          <h1>Річниця ЧАП — сюрприз</h1>
-          <p class="lead">Інтерактивна квитанція — з чаєм і настроєм</p>
+          <h1>Вітаємо з першою річницею ЧАПу!</h1>
+          <p class="lead">В честь цієї події, ваша адміністрація підготувала вам невеликий подарунок)</p>
         </div>
       </div>
     </header>
 
     <section class="controls">
-      <label for="roleInput">Ваша роль (як потрібно вказати у квитанції):</label>
+      <label for="roleInput">Ваша роль (це потрібно для генерації вашого подарунку):</label>
       <div class="row">
-        <input id="roleInput" placeholder="Наприклад: Оракул / Гість / Майстер" inputmode="text" />
+        <input id="roleInput" placeholder="Наприклад: Паймон" inputmode="text" />
         <button id="openBtn" class="btn secondary">Відкрити віконце</button>
       </div>
-      <small class="hint">Якщо вже отримали подарунок, натисніть «Переглянути квитанцію»</small>
+      <small class="hint">Якщо вже отримали подарунок, натисніть «Переглянути сертифікат»</small>
       <div class="actions">
-        <button id="viewReceipt" class="btn secondary" style="display:none">Переглянути квитанцію</button>
+        <button id="viewReceipt" class="btn secondary" style="display:none">Переглянути сертифікат</button>
         <div class="spacer"></div>
-        <button id="resetBtn" class="btn ghost">Скинути (для тестування)</button>
+        <button id="adminBtn" class="btn ghost">Адміністратор</button>
       </div>
     </section>
 
     <section id="receipt" class="receipt" aria-live="polite" style="display:none">
-      <h2>Квитанція — Подарунок від ЧАП</h2>
-      <pre id="receiptText"></pre>
+      <h2>Сертифікат — Подарунок від адміністрації ЧАП</h2>
+      <div class="receipt-text-wrapper">
+        <pre id="receiptText"></pre>
+      </div>
       <div id="receiptMeta" class="meta"></div>
     </section>
   </main>
@@ -52,9 +49,8 @@
     <div class="popup-card">
       <div class="popup-header">
         <div class="title"><div class="cup" aria-hidden="true"></div><h3>З річницею ЧАП!</h3></div>
-        <button id="closeX" class="close" aria-label="Закрити">✕</button>
       </div>
-      <div id="popupBody" class="popup-body">Натисни на хрестик аби отримати подарунок.</div>
+      <div id="popupBody" class="popup-body">Натисни кнопку аби отримати подарунок.</div>
       <div id="popupFooter" class="popup-footer"></div>
     </div>
   </div>
